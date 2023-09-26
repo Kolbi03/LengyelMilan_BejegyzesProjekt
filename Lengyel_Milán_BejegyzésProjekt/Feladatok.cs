@@ -23,6 +23,7 @@ namespace Lengyel_Milán_BejegyzésProjekt
             Kiir();
             Legnepszerubb();
             Soklike();
+            Keveslike();
         }
 
         public void Beker()
@@ -120,5 +121,20 @@ namespace Lengyel_Milán_BejegyzésProjekt
             }
             Console.WriteLine(mennyiseg);
         }
+
+        public void Keveslike()
+        {
+            int mennyiseg = 0;
+            foreach (var item in bejegyzesek2)
+            {
+                if (item.Likeok < 15)
+                {
+                    mennyiseg++;
+                }
+            }
+            Console.WriteLine(mennyiseg);
+        }
+
+
     }
 }
