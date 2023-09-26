@@ -14,13 +14,13 @@ namespace Lengyel_Milán_BejegyzésProjekt
         private DateTime letrejott = new DateTime();
         private DateTime szerkesztve = new DateTime();
 
-        private Bejegyzes (string szerzo, string tartalom)
+        public Bejegyzes (string szerzo, string tartalom)
         {
             this.szerzo = szerzo;
             this.tartalom = tartalom;
             this.likeok = 0;
-            this.letrejott = DateTime.Today;
-            this.szerkesztve = DateTime.Today;
+            this.letrejott = DateTime.UtcNow;
+            this.szerkesztve = DateTime.UtcNow;
         }
 
         public string Szerzo { get => szerzo;}
@@ -29,11 +29,14 @@ namespace Lengyel_Milán_BejegyzésProjekt
         public DateTime Letrejott { get => letrejott;}
         public DateTime Szerkesztve { get => szerkesztve;}
 
-        public void like()
+        public void Like()
         {
             this.likeok++;
         }
 
-
+        public override string ToString()
+        {
+            return $"{this.szerzo}, {this.likeok}, {this.letrejott} \nSzerkesztve: {this.szerkesztve} \n{this.tartalom}".ToString();
+        }
     }
 }
