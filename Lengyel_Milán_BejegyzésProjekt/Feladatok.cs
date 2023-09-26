@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -17,13 +18,22 @@ namespace Lengyel_Milán_BejegyzésProjekt
         public Feladatok() 
         {
             Beker();
+            Console.WriteLine("----------");
             Beolvas();
+            Console.WriteLine("----------");
             Modosit();
+            Console.WriteLine("----------");
             Likeosztas();
+            Console.WriteLine("----------");
             Kiir();
+            Console.WriteLine("----------");
             Legnepszerubb();
+            Console.WriteLine("----------");
             Soklike();
+            Console.WriteLine("----------");
             Keveslike();
+            Console.WriteLine("----------");
+            Rendez();
         }
 
         public void Beker()
@@ -76,7 +86,7 @@ namespace Lengyel_Milán_BejegyzésProjekt
             Random r = new Random();
             for (int i = 0; i < likeosztas*20; i++)
             {
-                randomszam = r.Next(0, bejegyzesek2.Count-1);
+                randomszam = r.Next(0, bejegyzesek2.Count);
                 bejegyzesek2[randomszam].Like();
             }
         }
@@ -119,7 +129,7 @@ namespace Lengyel_Milán_BejegyzésProjekt
                     mennyiseg++;
                 }
             }
-            Console.WriteLine(mennyiseg);
+            Console.WriteLine("Ennyi bejegyzés kapott 35 likenál többet: " + mennyiseg);
         }
 
         public void Keveslike()
@@ -132,9 +142,28 @@ namespace Lengyel_Milán_BejegyzésProjekt
                     mennyiseg++;
                 }
             }
-            Console.WriteLine(mennyiseg);
+            Console.WriteLine("Ennyi bejegyzés kapott 15 likenál kevesebbet: " + mennyiseg);
         }
 
+        public void Rendez()
+        {
+            for (int i = 0; i < bejegyzesek2.Count - 1; i++)
+            {
+                for (int j = i + 1; j < bejegyzesek2.Count; j++)
+                {
+                    if (bejegyzesek2[i].Likeok < bejegyzesek2[j].Likeok)
+                    {
+                        Bejegyzes atmeneti = bejegyzesek2[i];
+                        bejegyzesek2[i] = bejegyzesek2[j];
+                        bejegyzesek2[j] = atmeneti;
+                    }
+                }
+            }
 
+            foreach (var item in bejegyzesek2)
+            {
+                Console.WriteLine(item);
+            }
+        }
     }
 }
