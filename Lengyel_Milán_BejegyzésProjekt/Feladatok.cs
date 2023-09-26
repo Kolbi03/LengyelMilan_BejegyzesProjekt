@@ -16,9 +16,11 @@ namespace Lengyel_Milán_BejegyzésProjekt
 
         public Feladatok() 
         {
-            Likeosztas();
             Beker();
             Beolvas();
+            Modosit();
+            Likeosztas();
+            Kiir();
         }
 
         public void Beker()
@@ -35,7 +37,7 @@ namespace Lengyel_Milán_BejegyzésProjekt
                     string tartalom = Console.ReadLine();
                     Bejegyzes b = new Bejegyzes(szerzo, tartalom);
                     bejegyzesek2.Add(b);
-                    //likeosztas++;
+                    likeosztas++;
                 }
             }
             else
@@ -61,7 +63,7 @@ namespace Lengyel_Milán_BejegyzésProjekt
             foreach (var item in bejegyzesek1)
             {
                 Console.WriteLine(item);
-                likeosztas++;
+                //likeosztas++;
             }
         }
 
@@ -71,9 +73,26 @@ namespace Lengyel_Milán_BejegyzésProjekt
             Random r = new Random();
             for (int i = 0; i < likeosztas*20; i++)
             {
-                randomszam = r.Next(0, likeosztas);
+                randomszam = r.Next(0, bejegyzesek2.Count-1);
                 bejegyzesek2[randomszam].Like();
             }
         }
+
+        public void Modosit()
+        {
+            Console.WriteLine("Mire szeretné módosítani a tartalmat?");
+            string modositott = Console.ReadLine();
+            bejegyzesek1[1].Tartalom = modositott;
+        }
+
+        public void Kiir()
+        {
+            foreach(var item in bejegyzesek2)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+
     }
 }
