@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.WebRequestMethods;
 
 namespace Lengyel_Milán_BejegyzésProjekt
 {
@@ -29,14 +31,9 @@ namespace Lengyel_Milán_BejegyzésProjekt
         public DateTime Letrejott { get => letrejott;}
         public DateTime Szerkesztve { get => szerkesztve;}
 
-        public void Like()
-        {
-            this.likeok++;
-        }
-
         public override string ToString()
         {
-            return $"{this.szerzo}, {this.likeok}, {this.letrejott} \nSzerkesztve: {this.szerkesztve} \n{this.tartalom}".ToString();
+            return $"{this.szerzo}, {this.likeok}, {this.letrejott} \nSzerkesztve: {this.szerkesztve} \n{this.tartalom}\n".ToString();
         }
     }
 }

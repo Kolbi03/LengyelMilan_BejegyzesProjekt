@@ -10,9 +10,9 @@ namespace Lengyel_Milán_BejegyzésProjekt
     {
         static void Main(string[] args)
         {
-            Bejegyzes bejegyzes1 = new Bejegyzes("Petőfi", "aaa");
+            Feladatok feladatok = new Feladatok();
 
-            Console.WriteLine(bejegyzes1.ToString());
+
 
             Console.ReadKey();
         }
