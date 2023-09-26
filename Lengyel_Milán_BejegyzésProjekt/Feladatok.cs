@@ -21,6 +21,8 @@ namespace Lengyel_Milán_BejegyzésProjekt
             Modosit();
             Likeosztas();
             Kiir();
+            Legnepszerubb();
+            Soklike();
         }
 
         public void Beker()
@@ -93,6 +95,30 @@ namespace Lengyel_Milán_BejegyzésProjekt
             }
         }
 
+        public void Legnepszerubb()
+        {
+            int legnagyobb = 0;
+            foreach( var item in bejegyzesek2)
+            {
+                if(item.Likeok > legnagyobb)
+                {
+                    legnagyobb = item.Likeok;
+                }
+            }
+            Console.WriteLine(legnagyobb);
+        }
 
+        public void Soklike()
+        {
+            int mennyiseg = 0;
+            foreach (var item in bejegyzesek2)
+            {
+                if (item.Likeok > 35)
+                {
+                    mennyiseg++;
+                }
+            }
+            Console.WriteLine(mennyiseg);
+        }
     }
 }
