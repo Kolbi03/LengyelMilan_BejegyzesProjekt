@@ -35,5 +35,10 @@ namespace Lengyel_Milán_BejegyzésProjekt
         {
             return $"{this.szerzo}, {this.likeok}, {this.letrejott} \nSzerkesztve: {this.szerkesztve} \n{this.tartalom}\n".ToString();
         }
+
+        public void Like()
+        {
+            this.likeok++;
+        }
     }
 }

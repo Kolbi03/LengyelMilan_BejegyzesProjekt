@@ -12,9 +12,11 @@ namespace Lengyel_Milán_BejegyzésProjekt
     {
         List<Bejegyzes> bejegyzesek1 = new List<Bejegyzes>();
         List<Bejegyzes> bejegyzesek2 = new List<Bejegyzes>();
+        private int likeosztas = 0;
 
         public Feladatok() 
         {
+            Likeosztas();
             Beker();
             Beolvas();
         }
@@ -33,6 +35,7 @@ namespace Lengyel_Milán_BejegyzésProjekt
                     string tartalom = Console.ReadLine();
                     Bejegyzes b = new Bejegyzes(szerzo, tartalom);
                     bejegyzesek2.Add(b);
+                    //likeosztas++;
                 }
             }
             else
@@ -55,11 +58,21 @@ namespace Lengyel_Milán_BejegyzésProjekt
                 Bejegyzes b = new Bejegyzes(szerzo, tartalom);
                 bejegyzesek1.Add(b);
             }
-            int likeosztas = 0;
             foreach (var item in bejegyzesek1)
             {
                 Console.WriteLine(item);
                 likeosztas++;
+            }
+        }
+
+        public void Likeosztas()
+        {
+            int randomszam;
+            Random r = new Random();
+            for (int i = 0; i < likeosztas*20; i++)
+            {
+                randomszam = r.Next(0, likeosztas);
+                bejegyzesek2[randomszam].Like();
             }
         }
     }
