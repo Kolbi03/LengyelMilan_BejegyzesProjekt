@@ -10,6 +10,7 @@ namespace Lengyel_Milán_BejegyzésProjekt
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
